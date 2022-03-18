@@ -1,0 +1,5 @@
+opencv-python>=4.5.5
+numpy>=1.22.3
+absl-py>=1.0.0
+Pillow>=9.0.1
+shapely>=1.8.1
