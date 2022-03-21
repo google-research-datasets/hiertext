@@ -25,9 +25,10 @@ First clone the project:
 git clone https://github.com/google-research-datasets/hiertext.git
 ```
 
-(Optional) Create and enter a virtual environment:
+(Optional but recommended) Create and enter a virtual environment:
 
 ```
+pip install virtualenv
 virtualenv -p python3 hiertext_env
 source ./hiertext_env/bin/activate
 ```
@@ -79,9 +80,6 @@ There are five tasks:
     -   End-to-end
 -   Paragraph detection (union of words)
 
-NOTE In our evaluation, lines and paragraphs are defined as the union of
-pixel-level masks of the underlying word level polygons.
-
 ### Images
 
 Images in HierText are of higher resolution with their long side constrained to
@@ -108,32 +106,88 @@ The ground-truth has the following format:
         {
           "vertices": [[x1, y1], [x2, y2],...,[xn, yn]],  // A loose bounding polygon with absolute values.
           "legible": true,  // If false, the region defined by `vertices` are considered as do-not-care in paragraph level evaluation.
-          "lines": [  // List of dictionaries, one for each text line contained in this paragraph.
+          "lines": [  // List of dictionaries, one for each text line contained in this paragraph. Lines in paragraph may not follow the reading order.
             {
               "vertices": [[x1, y1], [x2, y2],...,[x4, y4]],  // A loose rotated rectangle with absolute values.
               "text": "the text content of the entire line",
               "legible": true,  // A line is legible if and only if all of its words are legible.
               "handwritten": false,  // True for handwritten text, false for printed text.
               "vertical": false,  // If true, characters have a vertical layout.
-              "words": [  // List of dictionaries, one for each word contained in this line.
+              "words": [  // List of dictionaries, one for each word contained in this line. Words inside a line follows the reading order.
                 {
                   "vertices": [[x1, y1], [x2, y2],...,[xm, ym]],  // Tight bounding polygons. Curved text can have more than 4 vertices.
                   "text": "the text content of this word",
                   "legible": true,  // If false, the word can't be recognized and the `text` field will be an empty string.
                   "handwritten": false,  // True for handwritten text, false for printed text.
                   "vertical": false,  // If true, characters have a vertical layout.
-                }
+                }, ...
               ]
-            }
+            }, ...
           ]
-        }
+        }, ...
       ]
-    }
+    }, ...
   ]
 }
 ```
 
+- Lines in a paragraph may not follow the reading order while words
+inside a line are ordered respect to the proper reading order.
+
+- Vertices in the ground-truth word polygon follow a specific order. See the
+below figure for details.
+
+![vertices](docs/images/vertices.png)
+
 ## Evaluation
+
+Uses the following command for word-level detection evaluation:
+
+```
+python3 eval.py --gt=gt/test.jsonl --result=/path/to/your/results.jsonl --output=/tmp/scores.txt
+```
+
+Add `--e2e` for end-to-end evaluation. Add `--eval_lines` and
+`--eval_paragraphs` to enable line-level and paragraph-level evaluation.
+Word-level evaluation is always performed.
+
+In line-level and paragraph-level evaluation, users can add `--num_workers=0` to
+run the job in parallel. The number of threads equals to the number of CPU cores
+in your local machine. But still, line-level and paragraph-level evaluation can
+take a long time to finish (~1 hour).
+
+Your predictions should be in a .jsonl file with the following format, even for
+word-level only evaluation, in which case a paragraph can contain a single line
+which contains a single word. For detection only evaluation, `text` can be set
+to an empty string.
+
+```jsonc
+{
+  "annotations": [  // List of dictionaries, one for each image.
+    {
+      "image_id": "the filename of corresponding image.",
+      "paragraphs": [  // List of paragraphs.
+        {
+          "lines": [  // List of lines.
+            {
+              "text": "the text content of the entire line",  // Set to empty string for detection-only evaluation.
+              "words": [  // List of words.
+                {
+                  "vertices": [[x1, y1], [x2, y2],...,[xm, ym]],
+                  "text": "the text content of this word",  // Set to empty string for detection-only evaluation.
+                }, ...
+              ]
+            }, ...
+          ]
+        }, ...
+      ]
+    }, ...
+  ]
+}
+```
+
+**NOTE** In evaluation, lines and paragraphs are defined as the union of
+pixel-level masks of the underlying word level polygons.
 
 ## License
 
@@ -144,8 +198,12 @@ Please cite the following paper if you use the dataset in your work:
 ```
 @inproceedings{long2022towards,
   title={Towards End-to-End Unified Scene Text Detection and Layout Analysis},
+  author={Long, Shangbang and Qin, Siyang and Panteleev, Dmitry and Bissacco, Alessandro and Fujii, Yasuhisa and Raptis, Michalis},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2022}
 }
 ```
+
+**This is not an officially supported Google product.** If you have any
+question, please email us at hiertext@google.com.
 
