@@ -40,10 +40,11 @@ cd hiertext
 pip install -r requirements.txt
 ```
 
-The ground-truth annotations of `train`, `validation` and `test` sets are
-contained in three compressed .jsonl files: `train.jsonl.gz`, `val.jsonl.gz` and
-`test.jsonl.gz` respectively, under `gt` subdirectory. Use the following command
-to decompress the three files:
+### Dataset downloading & processing
+
+The ground-truth annotations of `train` and `validation` sets are stored in
+`gt/train.jsonl.gz`, `gt/validation.jsonl.gz` respectively. Use the following
+command to decompress the two files:
 
 ```
 gzip -d gt/*.jsonl.gz
@@ -62,6 +63,15 @@ tar -xzvf train.tgz
 tar -xzvf validation.tgz
 tar -xzvf test.tgz
 ```
+
+### Dataset inspection and visualization
+
+First, follow
+[this instruction](https://research.google.com/colaboratory/local-runtimes.html)
+to install Jupyter and enable local runtime for colab. Then run the colab
+notebook
+[HierText_Visualization.ipynb](HierText_Visualization.ipynb)
+to inspect the data.
 
 ## Dataset Description
 
@@ -86,6 +96,7 @@ Images in HierText are of higher resolution with their long side constrained to
 1600 pixels compared to previous datasets based on Open Images that are
 constrained to 1024 pixels. This results in more legible small text. The
 filename of each image is its corresponding image ID in the Open Images dataset.
+All images are stored in JPG format.
 
 ### Annotations
 
@@ -144,7 +155,7 @@ below figure for details.
 Uses the following command for word-level detection evaluation:
 
 ```
-python3 eval.py --gt=gt/test.jsonl --result=/path/to/your/results.jsonl --output=/tmp/scores.txt
+python3 eval.py --gt=gt/validation.jsonl --result=/path/to/your/results.jsonl --output=/tmp/scores.txt
 ```
 
 Add `--e2e` for end-to-end evaluation. Add `--eval_lines` and
@@ -189,11 +200,27 @@ to an empty string.
 **NOTE** In evaluation, lines and paragraphs are defined as the union of
 pixel-level masks of the underlying word level polygons.
 
+### Evaluation on the test set
+
+We plan to host a competition soon. Before that happens, please send your
+compressed (e.g. using gzip) JSON file to hiertext@google.com. We will run the
+evaluation and provide the results within a week. In the email, please also
+provide the team's name, organization, the tasks to be evaluated on and a short
+description about the method.
+
+By emailing us and by submitting your prediction files, you consent to being
+contacted by the HierText team about your submission and allowing us to use your
+predictions to potentially fix ground-truth errors. The submitted files will be
+kept for 90 days unless requested by the authors.
+
 ## License
 
 The HierText dataset are released under
 [**CC BY-SA 4.0**](https://creativecommons.org/licenses/by-sa/4.0/) license.
-Please cite the following paper if you use the dataset in your work:
+
+## BibTeX
+
+Please cite our paper if you use the dataset in your work:
 
 ```
 @inproceedings{long2022towards,
