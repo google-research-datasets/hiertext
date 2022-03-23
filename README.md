@@ -66,12 +66,11 @@ tar -xzvf test.tgz
 
 ### Dataset inspection and visualization
 
-First, follow
-[this instruction](https://research.google.com/colaboratory/local-runtimes.html)
-to install Jupyter and enable local runtime for colab. Then run the colab
-notebook
-[HierText_Visualization.ipynb](HierText_Visualization.ipynb)
-to inspect the data.
+Run the visualization notebook locally to inspect the data using:
+
+```
+jupyter notebook HierText_Visualization.ipynb
+```
 
 ## Dataset Description
 
