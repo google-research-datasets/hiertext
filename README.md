@@ -210,7 +210,7 @@ description about the method.
 By emailing us and by submitting your prediction files, you consent to being
 contacted by the HierText team about your submission and allowing us to use your
 predictions to potentially fix ground-truth errors. The submitted files will be
-kept for 90 days unless requested by the authors.
+kept for 180 days unless requested by the authors.
 
 ## License
 
