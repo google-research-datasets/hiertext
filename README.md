@@ -1,8 +1,8 @@
 # The HierText Dataset
 
-![samples](docs/images/dataset.png)
-
 ## Overview
+
+![samples](dataset.jpg)
 
 HierText is the first dataset featuring hierarchical annotations of text in
 natural scenes and documents. The dataset contains 11639 images selected from
@@ -28,7 +28,7 @@ git clone https://github.com/google-research-datasets/hiertext.git
 (Optional but recommended) Create and enter a virtual environment:
 
 ```
-pip install virtualenv
+sudo pip install virtualenv
 virtualenv -p python3 hiertext_env
 source ./hiertext_env/bin/activate
 ```
@@ -66,11 +66,12 @@ tar -xzvf test.tgz
 
 ### Dataset inspection and visualization
 
-Run the visualization notebook locally to inspect the data using:
-
-```
-jupyter notebook HierText_Visualization.ipynb
-```
+First, follow
+[this instruction](https://research.google.com/colaboratory/local-runtimes.html)
+to install Jupyter and enable local runtime for colab. Then run the colab
+notebook
+[HierText_Visualization.ipynb](http://google3/experimental/users/qinb/hiertext/HierText_Visualization.ipynb)
+to inspect the data.
 
 ## Dataset Description
 
@@ -147,29 +148,29 @@ inside a line are ordered respect to the proper reading order.
 - Vertices in the ground-truth word polygon follow a specific order. See the
 below figure for details.
 
-![vertices](docs/images/vertices.png)
-
 ## Evaluation
 
 Uses the following command for word-level detection evaluation:
 
 ```
-python3 eval.py --gt=gt/validation.jsonl --result=/path/to/your/results.jsonl --output=/tmp/scores.txt
+python3 eval.py --gt=gt/validation.jsonl --result=/path/to/your/results.jsonl --output=/tmp/scores.txt --mask_stride=1
 ```
 
 Add `--e2e` for end-to-end evaluation. Add `--eval_lines` and
 `--eval_paragraphs` to enable line-level and paragraph-level evaluation.
 Word-level evaluation is always performed.
 
-In line-level and paragraph-level evaluation, users can add `--num_workers=0` to
-run the job in parallel. The number of threads equals to the number of CPU cores
-in your local machine. But still, line-level and paragraph-level evaluation can
-take a long time to finish (~1 hour).
+Be careful when you set the `mask_stride` parameter. Please read the flag's
+definition. For results intended to be included in any publications, users are
+required to set `--mask_stride=1`.
 
-Your predictions should be in a .jsonl file with the following format, even for
-word-level only evaluation, in which case a paragraph can contain a single line
-which contains a single word. For detection only evaluation, `text` can be set
-to an empty string.
+To expedite the evaluation, users can also set the `num_workers` flag to run the
+job in parallel. Note that using too many workers may result in OOM.
+
+Your predictions should be in a `.jsonl` file with the following format, even
+for word-level only evaluation, in which case a paragraph can contain a single
+line which contains a single word. For detection only evaluation, `text` can be
+set to an empty string.
 
 ```jsonc
 {
@@ -199,6 +200,14 @@ to an empty string.
 **NOTE** In evaluation, lines and paragraphs are defined as the union of
 pixel-level masks of the underlying word level polygons.
 
+### Sample test output
+
+We attached a sample output file in compressed form, `sample_output.gz`, to this
+repo. Use `tar -xzvf sample_output.gz` to uncompress it and pass to `--result`.
+You should be able to see the scores as those in `sample_eval_scores.txt`. These
+are the outputs and resutls of the Unified Detector (line based) model in our
+paper.
+
 ### Evaluation on the test set
 
 We plan to host a competition soon. Before that happens, please send your
@@ -210,7 +219,7 @@ description about the method.
 By emailing us and by submitting your prediction files, you consent to being
 contacted by the HierText team about your submission and allowing us to use your
 predictions to potentially fix ground-truth errors. The submitted files will be
-kept for 180 days unless requested by the authors.
+kept for 90 days unless requested by the authors.
 
 ## License
 
@@ -232,4 +241,3 @@ Please cite our paper if you use the dataset in your work:
 
 **This is not an officially supported Google product.** If you have any
 question, please email us at hiertext@google.com.
-
