@@ -2,7 +2,7 @@
 
 ## Overview
 
-![samples](dataset.jpg)
+![samples](docs/images/dataset.png)
 
 HierText is the first dataset featuring hierarchical annotations of text in
 natural scenes and documents. The dataset contains 11639 images selected from
@@ -203,7 +203,7 @@ pixel-level masks of the underlying word level polygons.
 ### Sample test output
 
 We attached a sample output file in compressed form, `sample_output.gz`, to this
-repo. Use `tar -xzvf sample_output.gz` to uncompress it and pass to `--result`.
+repo. Use `gzip -d sample_output.gz` to uncompress it and pass to `--result`.
 You should be able to see the scores as those in `sample_eval_scores.txt`. These
 are the outputs and resutls of the Unified Detector (line based) model in our
 paper.
