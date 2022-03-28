@@ -1,8 +1,8 @@
 # The HierText Dataset
 
-## Overview
-
 ![samples](docs/images/dataset.png)
+
+## Overview
 
 HierText is the first dataset featuring hierarchical annotations of text in
 natural scenes and documents. The dataset contains 11639 images selected from
@@ -66,12 +66,11 @@ tar -xzvf test.tgz
 
 ### Dataset inspection and visualization
 
-First, follow
-[this instruction](https://research.google.com/colaboratory/local-runtimes.html)
-to install Jupyter and enable local runtime for colab. Then run the colab
-notebook
-[HierText_Visualization.ipynb](http://google3/experimental/users/qinb/hiertext/HierText_Visualization.ipynb)
-to inspect the data.
+Run the visualization notebook locally to inspect the data using:
+
+```
+jupyter notebook HierText_Visualization.ipynb
+```
 
 ## Dataset Description
 
@@ -142,11 +141,13 @@ The ground-truth has the following format:
 }
 ```
 
-- Lines in a paragraph may not follow the reading order while words
-inside a line are ordered respect to the proper reading order.
+-   Lines in a paragraph may not follow the reading order while words inside a
+    line are ordered respect to the proper reading order.
 
-- Vertices in the ground-truth word polygon follow a specific order. See the
-below figure for details.
+-   Vertices in the ground-truth word polygon follow a specific order. See the
+    below figure for details.
+
+![samples](docs/images/vertices.png)
 
 ## Evaluation
 
@@ -200,13 +201,15 @@ set to an empty string.
 **NOTE** In evaluation, lines and paragraphs are defined as the union of
 pixel-level masks of the underlying word level polygons.
 
-### Sample test output
+### Sample output on the validation set
 
-We attached a sample output file in compressed form, `sample_output.gz`, to this
-repo. Use `gzip -d sample_output.gz` to uncompress it and pass to `--result`.
-You should be able to see the scores as those in `sample_eval_scores.txt`. These
-are the outputs and resutls of the Unified Detector (line based) model in our
-paper.
+We attached a sample output file in compressed form, `sample_output.jsonl.gz`,
+to this repo. Use `gzip -d sample_output.jsonl.gz` to uncompress it and pass to
+`--result`. You should be able to see the scores as those in
+`sample_eval_scores.txt`. These are the outputs and results on the validation
+set of the Unified Detector (line based) model proposed in our paper. Note the
+results are different from the ones reported in the paper which are computed
+on the test set.
 
 ### Evaluation on the test set
 
@@ -219,7 +222,7 @@ description about the method.
 By emailing us and by submitting your prediction files, you consent to being
 contacted by the HierText team about your submission and allowing us to use your
 predictions to potentially fix ground-truth errors. The submitted files will be
-kept for 90 days unless requested by the authors.
+kept for 180 days unless requested by the authors.
 
 ## License
 
@@ -241,3 +244,4 @@ Please cite our paper if you use the dataset in your work:
 
 **This is not an officially supported Google product.** If you have any
 question, please email us at hiertext@google.com.
+
