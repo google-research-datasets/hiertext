@@ -15,7 +15,7 @@ semantic topic and are geometrically coherent form paragraphs. Images in
 HierText are rich in text, with average of more than 100 words per image.
 
 We hope this dataset can help researchers developing more robust OCR models and
-enables research into unified OCR and layout analysis. Check out out
+enables research into unified OCR and layout analysis. Check out our
 [paper](https://arxiv.org/pdf/2203.15143.pdf) for more details.
 
 ## Getting Started
