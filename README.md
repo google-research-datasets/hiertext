@@ -15,7 +15,8 @@ semantic topic and are geometrically coherent form paragraphs. Images in
 HierText are rich in text, with average of more than 100 words per image.
 
 We hope this dataset can help researchers developing more robust OCR models and
-enables research into unified OCR and layout analysis.
+enables research into unified OCR and layout analysis. Check out out
+[paper](https://arxiv.org/pdf/2203.15143.pdf) for more details.
 
 ## Getting Started
 
@@ -208,8 +209,8 @@ to this repo. Use `gzip -d sample_output.jsonl.gz` to uncompress it and pass to
 `--result`. You should be able to see the scores as those in
 `sample_eval_scores.txt`. These are the outputs and results on the validation
 set of the Unified Detector (line based) model proposed in our paper. Note the
-results are different from the ones reported in the paper which are computed
-on the test set.
+results are different from the ones reported in the paper which are computed on
+the test set.
 
 ### Evaluation on the test set
 
@@ -231,7 +232,8 @@ The HierText dataset are released under
 
 ## BibTeX
 
-Please cite our paper if you use the dataset in your work:
+Please cite our [paper](https://arxiv.org/pdf/2203.15143.pdf) if you use the
+dataset in your work:
 
 ```
 @inproceedings{long2022towards,
