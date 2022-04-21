@@ -41,13 +41,13 @@ def load_annotations(gt_path: str, result_path: str):
   index = {}
 
   print('Loading ground-truth annotations.')
-  gt_annos = json.load(open(gt_path))['annotations']
+  gt_annos = json.load(open(gt_path, encoding='utf-8'))['annotations']
   for anno in gt_annos:
     outputs.append(anno)
     index[anno['image_id']] = anno
 
   print('Loading predictions.')
-  results = json.load(open(result_path))['annotations']
+  results = json.load(open(result_path, encoding='utf-8'))['annotations']
   for anno in results:
     gt_dict = index[anno['image_id']]
     gt_dict['output_paragraphs'] = anno['paragraphs']
