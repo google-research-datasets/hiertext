@@ -2,6 +2,12 @@
 
 ![samples](docs/images/dataset.png)
 
+[![Paper](https://img.shields.io/badge/Paper-arxiv.2203.15143-green)](https://arxiv.org/abs/2203.15143)
+[![Code](https://img.shields.io/badge/Code-UnifiedDetector-green)](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector)
+
+
+
+
 ## Overview
 
 HierText is the first dataset featuring hierarchical annotations of text in
@@ -17,6 +23,11 @@ HierText are rich in text, with average of more than 100 words per image.
 We hope this dataset can help researchers developing more robust OCR models and
 enables research into unified OCR and layout analysis. Check out our
 [paper](https://arxiv.org/pdf/2203.15143.pdf) for more details.
+
+### Opensourcing Unified Detector
+In the paper, we also propose a novel method called **Unified Detector**, that
+unifies text detection and layout analysis. The code and pretrained checkpoint
+is now available at this [repository](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector)
 
 ## Getting Started
 
