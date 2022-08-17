@@ -3,8 +3,8 @@
 ![samples](docs/images/dataset.png)
 
 [![Paper](https://img.shields.io/badge/Paper-arxiv.2203.15143-green)](https://arxiv.org/abs/2203.15143)
-[![Code](https://img.shields.io/badge/Code-UnifiedDetector-green)](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector)
-
+[![Code](https://img.shields.io/badge/Code-TFModel%2FUnifiedDetector-green)](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector)
+[![Competition](https://img.shields.io/badge/Competition-RobustReadingCompetition-red)](https://rrc.cvc.uab.es/?ch=18)
 
 
 
@@ -225,16 +225,8 @@ the test set.
 
 ### Evaluation on the test set
 
-We plan to host a competition soon. Before that happens, please send your
-compressed (e.g. using gzip) JSON file to hiertext@google.com. We will run the
-evaluation and provide the results within a week. In the email, please also
-provide the team's name, organization, the tasks to be evaluated on and a short
-description about the method.
-
-By emailing us and by submitting your prediction files, you consent to being
-contacted by the HierText team about your submission and allowing us to use your
-predictions to potentially fix ground-truth errors. The submitted files will be
-kept for 180 days unless requested by the authors.
+To evaluate on the test set, please go to the [Robust Reading Competition](https://rrc.cvc.uab.es/?ch=18) website. 
+You will need to compress your `json` file with `gzip` before uploading it. The evaluation will take around `1` hour.
 
 ## License
 
