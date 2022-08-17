@@ -11,6 +11,7 @@
 
 - 2022.08.17: A competition is launched on [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction).
 - 2022.06.02: Code and weights for the unified detector model are released in [TensorFlow Model Garden](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector).
+- 2022.03.03: Paper accepted to CVPR 2022.
 
 
 ## Overview
