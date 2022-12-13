@@ -9,7 +9,7 @@
 
 ## News
 
-- 2022.12.12: We will be hosting a competition at ICDAR 2023 with HierText! The competition will be held on the [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction) website, including two tasks, (1) __Hierarchical Text Detection__ and (2) __Word-Level End-to-End Text Detection and Recognition__. The submission site is still open but the result is temporarily hidden until the competition ends (around late March).
+- 2022.12.12: We will be hosting __ICDAR 2023 Competition on Hierarchical TextDetection and Recognition__ with HierText! The competition will be held on the [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction) website, including two tasks, (1) __Hierarchical Text Detection__ and (2) __Word-Level End-to-End Text Detection and Recognition__. See the website for more info.
 - 2022.08.17: The evaluation server is launched on [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction). Now you can submit the result of your method on this website.
 - 2022.05.11: The Out-of-Vocabulary competition is launched as part of the [Text-in-Everything](https://sites.google.com/corp/view/tie-eccv2022/challenge) workshop at ECCV 2022. HierText is incorporated to construct the benchmark dataset.
 - 2022.06.02: Code and weights for the unified detector model are released in [TensorFlow Model Garden](https://github.com/tensorflow/models/tree/master/official/projects/unified_detector).
