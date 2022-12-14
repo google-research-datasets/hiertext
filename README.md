@@ -236,6 +236,10 @@ the test set.
 To evaluate on the test set, please go to the [Robust Reading Competition](https://rrc.cvc.uab.es/?ch=18) website. 
 You will need to compress your `json` file with `gzip` before uploading it. The evaluation will take around `1` hour.
 
+(Note: Currently, the results are hidden because of an ongoing competition. If you do not wish to participate in the competition but still want to evaluate your methods on HierText test set (e.g. in your research paper), you can email us requesting it. You will first need to submit your inference results via this website, and send us an email with your real names using your institutional email (e.g. edu, corp email). After verification, we will then send the evaluation results back to you.)
+
+
+
 ## License
 
 The HierText dataset are released under
