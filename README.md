@@ -9,6 +9,7 @@
 
 ## News
 
+- 2023.05.17: Competition report available [here](https://arxiv.org/abs/2305.09750).
 - 2023.04.14: We have released the results [(click here)](https://github.com/google-research-datasets/hiertext/blob/main/docs/images/ICDAR_2023_Competition_on_Hierarchical_Text_Detection_and_Recognition_result_and_ranking_.pdf) of  __ICDAR 2023 Competition on Hierarchical TextDetection and Recognition__. Congratulations and thanks for all the efforts!
 - 2022.12.12: We will be hosting __ICDAR 2023 Competition on Hierarchical TextDetection and Recognition__ with HierText! The competition will be held on the [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction) website, including two tasks, (1) __Hierarchical Text Detection__ and (2) __Word-Level End-to-End Text Detection and Recognition__. See the website for more info.
 - 2022.08.17: The evaluation server is launched on [Robust Reading Comprehension](https://rrc.cvc.uab.es/?ch=18&com=introduction). Now you can submit the result of your method on this website.
@@ -257,6 +258,13 @@ dataset in your work:
   author={Long, Shangbang and Qin, Siyang and Panteleev, Dmitry and Bissacco, Alessandro and Fujii, Yasuhisa and Raptis, Michalis},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2022}
+}
+
+@article{long2023icdar,
+  title={ICDAR 2023 Competition on Hierarchical Text Detection and Recognition},
+  author={Long, Shangbang and Qin, Siyang and Panteleev, Dmitry and Bissacco, Alessandro and Fujii, Yasuhisa and Raptis, Michalis},
+  journal={arXiv preprint arXiv:2305.09750},
+  year={2023}
 }
 ```
 
