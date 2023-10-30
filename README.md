@@ -9,6 +9,7 @@
 
 ## News
 
+- 2023.10.29: Our new paper for [joint text spotting and layout analysis](https://arxiv.org/abs/2310.17674) is accepted to WACV 2024!
 - 2023.08.23: Oral presentation at [ICDAR 2023](https://icdar2023.org/program/sessions/#:~:text=O11.2,and%20Michalis%20Raptis) for our competition.
 - 2023.05.17: Competition report available [here](https://arxiv.org/abs/2305.09750).
 - 2023.04.14: We have released the results [(click here)](https://github.com/google-research-datasets/hiertext/blob/main/docs/images/ICDAR_2023_Competition_on_Hierarchical_Text_Detection_and_Recognition_result_and_ranking_.pdf) of  __ICDAR 2023 Competition on Hierarchical TextDetection and Recognition__. Congratulations and thanks for all the efforts!
