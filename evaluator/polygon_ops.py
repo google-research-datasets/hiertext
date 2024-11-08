@@ -41,7 +41,7 @@ def intersection_and_area(polygons1, polygons2):
   m = polygons2.num_boxes()
   polygon_data1 = polygons1.get()
   polygon_data2 = polygons2.get()
-  intersection_area = np.zeros((n, m), dtype=np.float)
+  intersection_area = np.zeros((n, m), dtype=float)
   area1 = area(polygons1)
   area2 = area(polygons2)
 
