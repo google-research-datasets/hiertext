@@ -9,6 +9,7 @@
 
 ## News
 
+- 2024.12.02: The test set annotation has been released so any one can use the eval script to evaluate their method directly. See the __Dataset downloading & processing__ section for details.
 - 2023.10.29: Our new paper for [joint text spotting and layout analysis](https://arxiv.org/abs/2310.17674) is accepted to WACV 2024!
 - 2023.08.23: Oral presentation at [ICDAR 2023](https://icdar2023.org/program/sessions/#:~:text=O11.2,and%20Michalis%20Raptis) for our competition.
 - 2023.05.17: Competition report available [here](https://arxiv.org/abs/2305.09750).
@@ -66,8 +67,8 @@ pip install -r requirements.txt
 
 ### Dataset downloading & processing
 
-The ground-truth annotations of `train` and `validation` sets are stored in
-`gt/train.jsonl.gz`, `gt/validation.jsonl.gz` respectively. Use the following
+The ground-truth annotations of `train` / `validation` / `test` sets are stored in
+`gt/train.jsonl.gz`, `gt/validation.jsonl.gz`, `gt/test.jsonl.gz` respectively. Use the following
 command to decompress the two files:
 
 ```
@@ -269,4 +270,3 @@ dataset in your work:
 
 **This is not an officially supported Google product.** If you have any
 question, please email us at hiertext@google.com.
-
